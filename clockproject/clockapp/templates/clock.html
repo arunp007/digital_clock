@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <tittle>Please Click On Clock</tittle>
+    <style>
+      body{
+        background: rgb(10,250,180,0.5)
+      }
+      .container{
+        background-color: black;
+        color: white;
+        width: 300px;
+        height: 300px;
+        border-radius: 300px;
+        text-align: center;
+        margin-top: 15px;
+        margin-left: 10px;
+        border: 20px solid gold;
+      } 
+      
+      .content{
+        padding-top: 40px;
+        font-size: 30px;
+        font-weight: bolder;
+        font-family: vardana;
+      }
+      
+      p{
+        padding-top: 10px;
+        font-size: 25px;
+        font-weight: bolder;
+      }
+    </style>
+   </head>
+<body onclick="clock()">
+  <div class="container">
+    <p>CASIO</p>
+    <div class="content"> 
+    <label id="hours"></label>
+    <label>:</label>
+    <label id="minutes"></label>
+    <label>:</label>
+    <label id="seconds"></label>
+    <label id="amorpm"></label>
+   </div>
+  </div>
+  <script>
+    function clock(){
+    var today = new Date()
+    var h = today.getHours()
+    var m = today.getMinutes()
+    var s = today.getSeconds()
+    var amorpm = document.getElementById('amorpm')
+    
+    if(h>=12){
+      amorpm = document.getElementById('amorpm').innerHTML="PM"
+    }
+    else{
+      amorpm = document.getElementById('amorpm').innerHTML="AM"
+    }
+    
+    if(h>12){
+      h = h - 12
+    }
+    
+    if(m<10){
+      m = "0" + m
+    }
+    
+    if(s<10){
+      s = "0" + s
+    }
+    
+    document.getElementById('hours').innerHTML=h
+    document.getElementById('minutes').innerHTML=m
+    document.getElementById('seconds').innerHTML=s
+  }
+  setInterval(time,1000)
+  </script>
+</body>
+</html>
+ 
